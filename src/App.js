@@ -15,24 +15,28 @@ const defaultTodos = [
 function App() {
   return (
     <>
-      <div className="flex justify-center border h-screen bg-zinc-400 ">
+      <div className="flex justify-center border h-screen bg-zinc-400">
 
-        <div className='w-1/2 border flex flex-col items-center'>
+        <div className='w-1/2 border flex flex-col items-center relative'>
+
           <TodoCounter completed={3} total={5} />
           <TodoSearch />
 
           <div className='border w-2/3 mt-4 rounded flex justify-center'>
             <TodoList>
               {defaultTodos.map(item => (
-                <TodoItem 
-                key={item.text} 
-                text={item.text}
-                completed={item.completed}/>
+                <TodoItem
+                  key={item.text}
+                  text={item.text}
+                  completed={item.completed} />
               ))}
             </TodoList>
           </div>
 
-          <CreateTodoButton />
+          <div className='absolute bottom-0 right-0'>
+            <CreateTodoButton />
+          </div>
+
         </div>
 
       </div>
