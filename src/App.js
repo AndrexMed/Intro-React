@@ -18,13 +18,21 @@ const defaultTodos = [
 function App() {
 
   const [searchValue, setSearchValue] = useState('');
-  console.log("Los usuarios buscan todos de: ", searchValue)
+  //console.log("Los usuarios buscan todos de: ", searchValue)
 
   const [todos, setTodo] = useState(defaultTodos)
 
   //Estados derivados:
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
+
+  const searchedTodos = todos.filter(
+    (todo) => {
+      const todoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLowerCase();
+      return todoText.includes(searchText);
+    }
+  );
 
   return (
     <>
@@ -40,7 +48,7 @@ function App() {
 
           <TodoList>
 
-            {defaultTodos.map(item => (
+            {searchedTodos.map(item => (
               <TodoItem
                 key={item.text}
                 text={item.text}
