@@ -20,7 +20,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   //console.log("Los usuarios buscan todos de: ", searchValue)
 
-  const [todos, setTodo] = useState(defaultTodos)
+  const [todos, setTodos] = useState(defaultTodos)
 
   //Estados derivados:
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -33,6 +33,20 @@ function App() {
       return todoText.includes(searchText);
     }
   );
+
+  const completeTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex((todo) => todo.text === text)
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed
+    setTodos(newTodos)
+  }
+
+  const deleteTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex((todo) => todo.text === text)
+    newTodos.splice(todoIndex, 1)
+    setTodos(newTodos)
+  }
 
   return (
     <>
@@ -52,7 +66,13 @@ function App() {
               <TodoItem
                 key={item.text}
                 text={item.text}
-                completed={item.completed} />
+                completed={item.completed}
+                onCompleted={() => {
+                  completeTodo(item.text)
+                }}
+                onDelete={() => {
+                  deleteTodo(item.text)
+                }} />
             ))}
 
           </TodoList>
