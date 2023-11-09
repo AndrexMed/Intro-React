@@ -1,12 +1,8 @@
 import React from 'react'
 
-const STYLES = {
-    // backgroundColor : "blue"
-}
-
 function CreateTodoButton() {
     return (
-        <button style={STYLES} className='w-20 h-20 rounded-full text-5xl flex items-center justify-center bg-cyan-50 hover:bg-cyan-100'>+</button>
+        <button className='w-16 h-16 rounded-full text-5xl flex justify-center items-center bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500'>+</button>
     )
 }
 

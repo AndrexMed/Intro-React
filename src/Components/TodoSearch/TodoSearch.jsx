@@ -2,8 +2,8 @@ import React from 'react'
 
 function TodoSearch() {
     return (
-        <div className='w-2/3'>
-            <input className="w-full p-2 border rounded-lg border-blue-500" type="text" placeholder="Input con borde azul"/>
+        <div className='w-5/6'>
+            <input className="w-full h-12 text-2xl p-2 border rounded-lg focus:outline-orange-700 shadow-xl" type="text" placeholder="Write a task..."/>
         </div>
     )
 }

@@ -9,31 +9,29 @@ import { CreateTodoButton } from './Components/CreateTodoButton/CreateTodoButton
 const defaultTodos = [
   { text: "Ver Netflix", completed: true },
   { text: "Ver YouTube", completed: false },
-  { text: "Ver Google", completed: false },
+  { text: "Ver Google", completed: true },
 ]
 
 function App() {
   return (
     <>
-      <div className="flex justify-center border h-screen bg-zinc-400">
+      <div className="flex justify-center border h-screen bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
 
-        <div className='w-1/2 border flex flex-col items-center relative'>
+        <div className='h-3/4 mt-4 rounded-md flex flex-col items-center relative bg-blue-300'>
 
           <TodoCounter completed={3} total={5} />
           <TodoSearch />
 
-          <div className='border w-2/3 mt-4 rounded flex justify-center'>
-            <TodoList>
-              {defaultTodos.map(item => (
-                <TodoItem
-                  key={item.text}
-                  text={item.text}
-                  completed={item.completed} />
-              ))}
-            </TodoList>
-          </div>
+          <TodoList>
+            {defaultTodos.map(item => (
+              <TodoItem
+                key={item.text}
+                text={item.text}
+                completed={item.completed} />
+            ))}
+          </TodoList>
 
-          <div className='absolute bottom-0 right-0'>
+          <div className='absolute bottom-4 right-4'>
             <CreateTodoButton />
           </div>
 
