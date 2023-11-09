@@ -8,19 +8,30 @@ import { CreateTodoButton } from './Components/CreateTodoButton/CreateTodoButton
 
 import React, { useState } from 'react';
 
-const defaultTodos = [
-  { text: "Ver Netflix", completed: true },
-  { text: "Ver YouTube", completed: false },
-  { text: "Ver Google", completed: true },
-  { text: "Dormir", completed: false }
-]
+// const defaultTodos = [
+//   { text: "Ver Netflix", completed: true },
+//   { text: "Ver YouTube", completed: false },
+//   { text: "Ver Google", completed: true },
+//   { text: "Dormir", completed: false }
+// ]
 
 function App() {
+
+  const localStorageTODOS = localStorage.getItem('TODOS_V1')
+
+  let parsedTODOS;
+
+  if (!localStorageTODOS) {
+    localStorage.setItem('TODOS_V1', JSON.stringify([]))
+    parsedTODOS = [];
+  } else {
+    parsedTODOS = JSON.parse(localStorageTODOS)
+  }
 
   const [searchValue, setSearchValue] = useState('');
   //console.log("Los usuarios buscan todos de: ", searchValue)
 
-  const [todos, setTodos] = useState(defaultTodos)
+  const [todos, setTodos] = useState(parsedTODOS)
 
   //Estados derivados:
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -34,18 +45,23 @@ function App() {
     }
   );
 
+  const saveTodos = (newTodos) => {
+    setTodos(newTodos);
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos))
+  }
+
   const completeTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex((todo) => todo.text === text)
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
   const deleteTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex((todo) => todo.text === text)
     newTodos.splice(todoIndex, 1)
-    setTodos(newTodos)
+    saveTodos(newTodos)
   }
 
   return (
