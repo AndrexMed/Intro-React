@@ -15,23 +15,34 @@ import React, { useState } from 'react';
 //   { text: "Dormir", completed: false }
 // ]
 
-function App() {
+function useLocalStorage(itemName, initialValue) {
 
-  const localStorageTODOS = localStorage.getItem('TODOS_V1')
+  const localStorageItem = localStorage.getItem(itemName)
 
-  let parsedTODOS;
+  let parsedItem;
 
-  if (!localStorageTODOS) {
-    localStorage.setItem('TODOS_V1', JSON.stringify([]))
-    parsedTODOS = [];
+  if (!localStorageItem) {
+    localStorage.setItem('TODOS_V1', JSON.stringify(initialValue))
+    parsedItem = initialValue;
   } else {
-    parsedTODOS = JSON.parse(localStorageTODOS)
+    parsedItem = JSON.parse(localStorageItem)
   }
+
+  const [item, setItem] = useState(parsedItem);
+
+  const saveItem = (newItem) => {
+    setItem(newItem);
+    localStorage.setItem('TODOS_V1', JSON.stringify(newItem))
+  }
+
+  return [item, saveItem];
+}
+
+function App() {
 
   const [searchValue, setSearchValue] = useState('');
   //console.log("Los usuarios buscan todos de: ", searchValue)
-
-  const [todos, setTodos] = useState(parsedTODOS)
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', [])
 
   //Estados derivados:
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -44,11 +55,6 @@ function App() {
       return todoText.includes(searchText);
     }
   );
-
-  const saveTodos = (newTodos) => {
-    setTodos(newTodos);
-    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos))
-  }
 
   const completeTodo = (text) => {
     const newTodos = [...todos]
