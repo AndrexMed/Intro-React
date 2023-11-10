@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppUI } from './AppUI';
-import { useLocalStorage } from './useLocalStorage';
+import { useLocalStorage } from '../Hooks/useLocalStorage';
 
 // const defaultTodos = [
 //   { text: "Ver Netflix", completed: true },
