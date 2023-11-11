@@ -40,3 +40,10 @@ function useLocalStorage(itemName, initialValue) {
 }
 
 export { useLocalStorage }
+
+// const defaultTodos = [
+//   { text: "Ver Netflix", completed: true },
+//   { text: "Ver YouTube", completed: false },
+//   { text: "Ver Google", completed: true },
+//   { text: "Dormir", completed: false }
+// ]
