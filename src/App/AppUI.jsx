@@ -7,9 +7,19 @@ import { TodosLoading } from '../Components/TodosLoading'
 import { TodosError } from '../Components/TodosError'
 import { EmptyTodos } from '../Components/EmptyTodos';
 import { TodoContext } from '../Context/TodoContext';
+// import { useContext } from 'react';
 
-function AppUI({
-}) {
+function AppUI() {
+
+    // const {
+    //     loading,
+    //     error,
+    //     searchedTodos,
+    //     completeTodo,
+    //     deleteTodo
+    // } = useContext(TodoContext);
+    //Como se esta usando el Provider del context no es necesario el useContext en este ejemplo.
+
     return (
         <>
             <div className="flex justify-center border h-screen bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">

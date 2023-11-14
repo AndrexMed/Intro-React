@@ -1,9 +1,16 @@
 import React from 'react'
 import '../TodoCounter/TodoCounter.css';
+import { TodoContext } from '../../Context/TodoContext';
 
-function TodoCounter({ completed, total }) {
+function TodoCounter() {
+
+    const {
+        completedTodos,
+        totalTodos
+    } = React.useContext(TodoContext);
+
     return (
-        total === completed ?
+        completedTodos === totalTodos ?
             <div>
                 <h1 className='font-bold text-4xl underline p-6 uppercase text-red-400'>
                     You don't have any to-dos
@@ -12,7 +19,7 @@ function TodoCounter({ completed, total }) {
             :
             <div>
                 <h1 className='font-bold text-4xl underline p-6 uppercase'>
-                    Have completed {completed} of {total} Tasks
+                    Have completed {completedTodos} of {totalTodos} Tasks
                 </h1>
             </div>
     );
