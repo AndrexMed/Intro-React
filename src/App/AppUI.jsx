@@ -7,18 +7,15 @@ import { TodosLoading } from '../Components/TodosLoading'
 import { TodosError } from '../Components/TodosError'
 import { EmptyTodos } from '../Components/EmptyTodos';
 import { TodoContext } from '../Context/TodoContext';
-// import { useContext } from 'react';
+import { Modal } from '../Components/Modal';
+import React from 'react';
 
 function AppUI() {
 
-    // const {
-    //     loading,
-    //     error,
-    //     searchedTodos,
-    //     completeTodo,
-    //     deleteTodo
-    // } = useContext(TodoContext);
-    //Como se esta usando el Provider del context no es necesario el useContext en este ejemplo.
+    const {
+        openModal,
+        setOpenModal
+    } = React.useContext(TodoContext);
 
     return (
         <>
@@ -62,10 +59,15 @@ function AppUI() {
                     </TodoContext.Consumer>
 
 
-                    <div className='absolute bottom-4 right-4'>
+                    <div className='absolute bottom-4 right-4 z-10'>
                         <CreateTodoButton />
                     </div>
 
+                    {openModal && (
+                        <Modal>
+                            Hola mundo
+                        </Modal>
+                    )}
                 </div>
 
             </div>

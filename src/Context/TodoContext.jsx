@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocalStorage } from '../Hooks/useLocalStorage';
 
 const TodoContext = React.createContext();
@@ -8,6 +8,8 @@ function TodoProvider({ children }) {
   const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage('TODOS_V1', [])
   const [searchValue, setSearchValue] = React.useState('');
   //console.log("Los usuarios buscan todos de: ", searchValue)
+
+  const [openModal, setOpenModal] = useState(false);
 
   //Estados derivados:
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -45,7 +47,9 @@ function TodoProvider({ children }) {
       completeTodo,
       deleteTodo,
       loading,
-      error
+      error,
+      openModal,
+      setOpenModal
     }}>
       {children}
     </TodoContext.Provider>
