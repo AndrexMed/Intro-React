@@ -1,2 +1,5 @@
 Libreria de iconos React:
 https://react-icons.github.io/react-icons/
+
+$ npm i --save--dev gh-pages
+Se instala esta libreria para el despligue de forma automatizada
