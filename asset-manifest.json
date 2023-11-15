@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AndrexMed/Intro-React/static/css/main.dc9919e0.css",
+    "main.js": "/AndrexMed/Intro-React/static/js/main.19dcbd3b.js",
+    "static/js/787.ea4871d8.chunk.js": "/AndrexMed/Intro-React/static/js/787.ea4871d8.chunk.js",
+    "index.html": "/AndrexMed/Intro-React/index.html",
+    "main.dc9919e0.css.map": "/AndrexMed/Intro-React/static/css/main.dc9919e0.css.map",
+    "main.19dcbd3b.js.map": "/AndrexMed/Intro-React/static/js/main.19dcbd3b.js.map",
+    "787.ea4871d8.chunk.js.map": "/AndrexMed/Intro-React/static/js/787.ea4871d8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc9919e0.css",
+    "static/js/main.19dcbd3b.js"
+  ]
+}
