@@ -1,3 +1,18 @@
+https://andrexmed.github.io/Intro-React/
+Bienvenido a ToDoTaskGio, la herramienta definitiva para gestionar tus tareas de manera eficiente y organizada. Esta aplicación, construida con React, no es solo tu típica lista de tareas; es una solución completa diseñada para simplificar tu vida diaria.
+
+Con ToDoTaskGio, la gestión de tareas se convierte en una experiencia intuitiva y agradable. Desde la adición rápida de nuevas tareas hasta la capacidad de personalizar y filtrar tu lista, cada función ha sido cuidadosamente diseñada para ofrecer una eficiencia sin esfuerzo.
+
+Explora las siguientes funcionalidades para descubrir cómo ToDoTaskGio va más allá de lo básico, brindándote el control total sobre tus tareas cotidianas:
+
+Agregar Tareas:
+Eliminar y Completar Tareas:
+Edición Personalizada:
+Filtrado Inteligente:
+Persistencia de Datos Confiable:
+
+[Asegura a los usuarios que sus datos están seguros y siempre accesibles, incluso después de cerrar la aplicación.]
+-----------------------------------------------------------------------------------------------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
